@@ -39,8 +39,8 @@ class User(Base):
 
 class Follower(Base):
     __tablename__ = "follower"
-    id = Column(Integer, primary_key = True)
-    user_id = Column(Integer, ForeignKey("user.id"))
+    user_from_id= Column(Integer, ForeignKey("user.id"),primary_key = True)
+    user_to_id = Column(Integer, ForeignKey("user.id"),primary_key = True)
     user = relationship(User)
 
 class Post(Base):
